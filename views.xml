@@ -1,0 +1,161 @@
+<odoo>
+	<data>
+
+		<record id="action_animal_department" model="ir.actions.act_window">
+			<field name="name">Department</field>
+			<field name="res_model">animaldepartment</field>
+			<field name="view_mode">tree,graph,pivot,calendar,form</field>
+		</record>
+
+
+		<record id="action_animal_employee" model="ir.actions.act_window">
+			<field name="name">Employee</field>
+			<field name="res_model">animalemployee</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+
+		<record id="action_animal_shop" model="ir.actions.act_window">
+			<field name="name">Shop</field>
+			<field name="res_model">animalshop</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+
+		<record id="action_animal_fish" model="ir.actions.act_window">
+			<field name="name">Fish</field>
+			<field name="res_model">animalfish</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		
+		<!-- search view -->
+		<record id="search_view_department" model="ir.ui.view">
+			<field name="name">Department</field>
+			<field name="model">animaldepartment</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="name"/>
+					<field name="number"/>
+					<field name="employees"/>
+					<field name="is_active"/>
+					<field name="start"/>
+					<field name="atype"/>
+				</search>
+			</field>
+		</record>
+
+		<!-- tree view -->
+		<record id="tree_view_department" model="ir.ui.view">
+			<field name="name">Department</field>
+			<field name="model">animaldepartment</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="number"/>
+					<field name="is_active"/>
+					<field name="start"/>
+				</tree>
+			</field>
+		</record>
+
+
+		<!-- graph view -->
+		<record id="graph_view_department" model="ir.ui.view">
+			<field name="name">Department</field>
+			<field name="model">animaldepartment</field>
+			<field name="arch" type="xml">
+				<graph>
+					<field name="name"/>
+					<field name="number" type="measure"/>
+				</graph>
+			</field>
+		</record>
+
+
+		<!-- pivot view -->
+		<record id="pivot_view_department" model="ir.ui.view">
+			<field name="name">Department</field>
+			<field name="model">animaldepartment</field>
+			<field name="arch" type="xml">
+				<pivot>
+					<field name="name"/>
+					<field name="number" type="measure"/>
+				</pivot>
+			</field>
+		</record>
+
+
+		<!-- calendar view -->
+		<record id="calendar_view_department" model="ir.ui.view">
+			<field name="name">Department</field>
+			<field name="model">animaldepartment</field>
+			<field name="arch" type="xml">
+				<calendar date_start="start" color="name">
+					<field name="name"/>
+				</calendar>
+			</field>
+		</record>
+
+		<!-- form view -->
+		<record id="form_view_department" model="ir.ui.view">
+			<field name="name">Department</field>
+			<field name="model">animaldepartment</field>
+			<field name="arch" type="xml">
+				<form>
+					<header>
+						<button name="cal_payroll" type="object" string="Calculate Payroll" />
+	                    <button name="action_activate" type="object" string="Activate" />
+	                    <button name="action_disactivate" type="object" string="Dis Activate"/>
+	                    <field name="is_active" widget="statusbar"/>
+					</header>
+					<sheet>
+						<field name="logo" widget="image" class="oe_avatar" options="{&quot;zoom&quot;: true, &quot;preview_image&quot;:&quot;logo&quot;}"/>
+						<group>
+							<group>
+								<field name="name"/>
+								<field name="number"/>								
+							</group>
+							<group>
+								<field name="atype"/>
+								<field name="start"/>
+							</group>
+						</group>
+						<notebook>
+							<page string="Employees">
+								<field name="employees"/>
+							</page>
+							<page string="Payrolls">
+								<field name="payrolls">
+									<tree editable="bottom">
+										<field name="employee_id"/>
+										<field name="salary"/>
+										<field name="department_id"/>
+									</tree>
+								</field>
+							</page>
+							<page string="Description">
+								<field name="description"/>
+							</page>
+							<page string="Info">
+								<group string="Private Info">
+									<field name="working"/>
+									<field name="budget"/>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+
+		<menuitem name="Animal System" id="animal_root_menu"/>
+		<menuitem name="Department" id="animal_department" parent="animal_root_menu" action="action_animal_department"/>
+		<menuitem name="Employee" id="animal_employee" parent="animal_root_menu" action="action_animal_employee"/>
+		<menuitem name="Shop" id="animal_shop" parent="animal_root_menu" action="action_animal_shop"/>
+		<menuitem name="Fish" id="animal_fish" parent="animal_root_menu" action="action_animal_fish"/>
+
+
+	</data>
+</odoo>
