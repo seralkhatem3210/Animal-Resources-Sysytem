@@ -121,6 +121,7 @@
 								<field name="start"/>
 							</group>
 						</group>
+						
 						<notebook>
 							<page string="Employees">
 								<field name="employees"/>
