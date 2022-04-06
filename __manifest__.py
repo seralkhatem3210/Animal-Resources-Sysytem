@@ -1,14 +1,14 @@
 {
-	'name': "Animal Resource a",
+	'name': "Animal Resource System",
 	'sequence': -100,
-	'author': "Mohammed Alwathig",
-	'summary': "Agriclutre Odoo course",
+	'author': "Sirelkhatim Gamal Sirelkhatim",
+	'summary': "Agriclutre Odoo System",
 	'description' : """ 
-		Learining Odoo:
+		Project  Odoo:
 			- create Module
 	""",
 
-	'website': "www.firebits.net",
+	'website': "muhtarif.unaux.com",
 	# 'depends': [],
 	'data': [
 		"views.xml",
